@@ -68,8 +68,10 @@ for i in range (2):
         bandera_unidades = False
 
 if bandera_barbijo:
-    mensaje = f"El precio del barbijo mas caro es ninguno con un total de {unidades_barbijo} unidades y el nombre del fabricante es ninguno. \nHay un total de {acumulador_jabones} unidades en jabones \nEl nombre del fabricante del item con mas unidades es {fabricante_unidades}"
+    mensaje = f"No se ingresaron barbijos, por ende no hay unidades ni nombre de fabricante.
+    \nHay un total de {acumulador_jabones} unidades en jabones \nEl nombre del fabricante del item con mas unidades es {fabricante_unidades}"
 else:
-    mensaje = f"El precio del barbijo mas caro es {mas_caro_barbijo} con un total de {unidades_barbijo} unidades y el nombre del fabricante es {fabricante_barbijo}. \nHay un total de {acumulador_jabones} unidades en jabones \nEl nombre del fabricante del item con mas unidades es {fabricante_unidades}"
+    mensaje = f"El precio del barbijo mas caro es {mas_caro_barbijo} con un total de {unidades_barbijo} unidades y el nombre del fabricante es {fabricante_barbijo}. 
+    \nHay un total de {acumulador_jabones} unidades en jabones \nEl nombre del fabricante del item con mas unidades es {fabricante_unidades}"
 
 print(mensaje)

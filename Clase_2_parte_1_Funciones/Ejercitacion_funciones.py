@@ -16,7 +16,7 @@
 8. Crear una función qué se encargue de multiplicar dos números, la misma debe recibir como parámetro dos números y retornar el resultado.
 '''
 
-#1.Crear una función que reciba dos números (acumulador y contador) y calcule el promedio, en caso de que haya división por cero imprimir un mensaje de error.
+#1.Crear una función que reciba dos números los divida y calcule el promedio, en caso de que haya división por cero imprimir un mensaje de error.
 
 # def promedio (numero_a:float, numero_b:float) -> float:
 #     '''
@@ -24,15 +24,18 @@
 #     Se suman esos dos numeros y se los divide por dos para calcular el promedio 
 #     Se redondea a 2 cifras despues de la coma
 #     ''' 
-#     resultado_promedio = round((numero_a + numero_b) / 2, 2)
-#     return resultado_promedio
-
+#     try:
+#         resultado_promedio = round((numero_a / numero_b) / 2, 2)
+#         return resultado_promedio
+#     except ZeroDivisionError:
+#         return "No es posible dividir por cero"
+    
 # numero_uno = float(input("Ingrese numero 1:"))
 # numero_dos = float(input("Ingrese numero 2:"))
 
 # resultado = promedio(numero_uno, numero_dos)
 
-# print(f"El resultado del promedio entre la suma de {numero_uno} y {numero_dos} es {resultado}")
+# print(f"El resultado del promedio entre la division de {numero_uno} y {numero_dos} es {resultado}")
 
 #2.Crear una función que calcule el área de un rectángulo. La función recibe la base y la altura y retorna el área.
 

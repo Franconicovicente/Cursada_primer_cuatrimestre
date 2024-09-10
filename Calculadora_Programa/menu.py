@@ -22,7 +22,7 @@ def menu():
             print("Ingreso Segundo Operando")
             contador_numeros += 1
 
-        elif opcion == 3:
+        elif contador_numeros == 2 and opcion == 3:
             resultado_suma = calcular_suma(numero_uno, numero_dos)
             resultado_resta = calcular_resta(numero_uno, numero_dos)
             resultado_division = calcular_division(numero_uno, numero_dos)
@@ -32,7 +32,7 @@ def menu():
             resultado_factorial_A = calcular_factorial_A(numero_uno)
             resultado_factorial_B = calcular_factorial_B(numero_dos)
 
-        elif opcion == 4:
+        elif contador_numeros == 2 and opcion == 4:
             if numero_dos == 0:
                 print (resultado_division)
             else:
@@ -51,13 +51,15 @@ def menu():
         elif opcion == 5:
             print("Saliendo...")
             break
-        else:
-            print("Opcion invalida ingrese números entre 1-5")
+        
     
-        if contador_numeros != 2 and opcion == 3:
+        elif contador_numeros != 2 and opcion == 3:
             print("No se puede acceder si no se ingresaron los operandos")
         elif contador_numeros != 2 and opcion == 4:
             print("No se puede acceder si no se calcularon las operaciones")
+
+        else:
+            print("Opcion invalida ingrese números entre 1-5")
 
 
         input("Pulse boton para continuar...")

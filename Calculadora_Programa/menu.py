@@ -40,7 +40,7 @@ def menu():
             print(f"Suma entre {numero_uno} + {numero_dos} = {resultado_suma}")
             print(f"Resta entre {numero_uno} - {numero_dos} = {resultado_resta}")
             print(f"Multiplicacion entre {numero_uno} x {numero_dos} = {resultado_multiplicacion}")
-            print(f"Potencia de {numero_uno} elevado a {numero_dos} = {resultado_potencia}")
+            print(f"Potencia de {numero_uno} elevado por {numero_dos} = {resultado_potencia}")
             if numero_dos == 0:
                     print(resultado_resto)
             else:

@@ -33,6 +33,6 @@ match operacion:
             mensaje = "No se puede dividir por 0"
         else:
             dividir = round(numero_1 / numero_2, 2)
-            mensaje = f"El resultado de su division es {dividir}"
+            mensaje = f"El resultado de su division = {dividir}"
 
 print(mensaje)

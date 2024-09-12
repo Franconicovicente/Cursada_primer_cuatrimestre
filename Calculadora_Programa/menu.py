@@ -29,8 +29,8 @@ def menu():
             resultado_multiplicacion = calcular_multiplicacion(numero_uno, numero_dos)
             resultado_potencia = calcular_potencia(numero_uno, numero_dos)
             resultado_resto = calcular_resto(numero_uno, numero_dos)
-            resultado_factorial_A = calcular_factorial_A(numero_uno)
-            resultado_factorial_B = calcular_factorial_B(numero_dos)
+            resultado_factorial_A = calcular_factorial(numero_uno)
+            resultado_factorial_B = calcular_factorial(numero_dos)
 
         elif contador_numeros == 2 and opcion == 4:
             if numero_dos == 0:

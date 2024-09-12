@@ -62,25 +62,15 @@ def calcular_resto (numero_a:float, numero_b:float) -> float:
 
 calcular_resto
 
-def calcular_factorial_A (numero_a) -> float:
+def calcular_factorial(numero:int) -> int:
     '''
     El usuario ingresa dos numeros, y se calcula su factor por separado
 
     '''
-    if numero_a == 0 or numero_a == 1:
+    if numero == 0 or numero == 1:
         return 1
     else:
-        resultado_factorial_A = round (numero_a * calcular_factorial_A (numero_a - 1), 2) 
-        return resultado_factorial_A
+        resultado_factorial= round (numero * calcular_factorial (numero - 1), 2) 
+        return resultado_factorial
 
-calcular_factorial_A
-
-def calcular_factorial_B (numero_b) -> float:
-
-    if numero_b == 0 or numero_b == 1:
-        return 1
-    else:
-        resultado_factorial_B = round(numero_b * calcular_factorial_B (numero_b - 1) , 2)
-        return resultado_factorial_B
-    
-calcular_factorial_B
+calcular_factorial

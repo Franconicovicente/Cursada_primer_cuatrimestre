@@ -66,19 +66,28 @@ def calcular_traspuesta(matriz:list) -> list:
 
     return retorno
 
+
+# Realizar una función que permita realizar la multiplicación entre dos matrices, recibirá una matriz_a y una matriz_b y devuelve una matriz resultante con el producto de las mismas.
+# Para que se pueda hacer una multiplicación entre dos matrices la cantidad de columnas de la matriz A debe ser igual a la cantidad de filas de la matriz B , si no se cumple devolver una lista vacía.
+# Además el tamaño de la matriz resultante debe ser equivalente a la cantidad de filas de la matriz A y la cantidad de columnas de la matriz B
+
 def calcular_producto(matriz_a:list,matriz_b:list)->list:
     '''
     Recibe una matriz_a y una matriz_b y devuelve una matriz resultante con el producto de las mismas.
     '''
+    cant_filas = len(matriz_a)
+    cant_columnas =len(matriz_b[0])
+    matriz_c = inicializar_matriz(cant_filas, cant_columnas)
     retorno = []
     if type (matriz_a) == list and type (matriz_b) == list:
         if  len(matriz_a[0]) == len(matriz_b):
-            matriz_c = len(matriz_a), len(matriz_b[0])
-            for fil in range(len(matriz_a)):
-                for col in range(len(matriz_a[fil])):
-                pass
+            for fil in range(cant_filas):#A
+                for col in range(cant_columnas):#B
+                    for k in range (len(matriz_b)):#FILAS DE B
+                        matriz_c[fil][col] += matriz_a[fil][k] * matriz_b[k][col] 
+                    
+            
+            retorno = matriz_c
     
 
-
     return retorno
-

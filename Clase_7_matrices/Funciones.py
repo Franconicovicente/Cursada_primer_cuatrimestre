@@ -51,16 +51,34 @@ def realizar_producto(matriz:list,escalar:int) -> list:
     
     return retorno
 
-def realizar_producto(matriz:list,escalar:int) -> list:
+def calcular_traspuesta(matriz:list) -> list:
     '''
+    Calcula la traspuesta de una matriz, en caso de no haber ninguna matriz, devuelve una matriz vacia.
     '''
     retorno = []
-    if type(matriz) == list and type(escalar) == int:
-        matriz_resultado = inicializar_matriz(len(matriz), len(matriz[0]))
+    if type(matriz) == list:
+        matriz_traspuesta = inicializar_matriz(len(matriz), len(matriz[0]))
         for fil in range(len(matriz)):
             for col in range(len(matriz[fil])):
-                matriz_resultado[fil][col] = matriz[fil][col] * escalar
-        retorno = matriz_resultado
+                matriz_traspuesta[col][fil]= matriz[fil][col]
     
+        return matriz_traspuesta
+
+    return retorno
+
+def calcular_producto(matriz_a:list,matriz_b:list)->list:
+    '''
+    Recibe una matriz_a y una matriz_b y devuelve una matriz resultante con el producto de las mismas.
+    '''
+    retorno = []
+    if type (matriz_a) == list and type (matriz_b) == list:
+        if  len(matriz_a[0]) == len(matriz_b):
+            matriz_c = len(matriz_a), len(matriz_b[0])
+            for fil in range(len(matriz_a)):
+                for col in range(len(matriz_a[fil])):
+                pass
+    
+
+
     return retorno
 

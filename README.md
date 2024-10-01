@@ -6,4 +6,5 @@
 
 
 
-![chika-fujiwara](https://github.com/user-attachments/assets/ee5af7bc-e81b-4b8b-8fee-66043049ee49)
+
+![0dc38d2f62c9fd05068bddfe9215822d](https://github.com/user-attachments/assets/792abfb1-9f2b-433c-ab56-055e87035e68)

@@ -23,11 +23,11 @@ print("")
         #     array_numeros[i] = numero_derecha
         #     array_numeros[j] = numero_izquierda
 
-# Segunda version 
+# Segunda version --> Version final. (Siempre esta expresado de esta manera)
 
 #Es el for de los numeros a la izquierda
 for i in range(len(array_numeros)-1):
-#Es el for de los numeros a la derecha
+# Es el for de los numeros a la derecha
     for j in range(i+1,len(array_numeros)):
         # Intercambio (numero_izquierda > numero_derecha)
         if array_numeros[i] > array_numeros[j]:
@@ -35,6 +35,16 @@ for i in range(len(array_numeros)-1):
 
             array_numeros[i] = array_numeros[j]
             array_numeros[j] = numero_izquierda
+
+# De mayor a menor
+
+for i in range(len(array_numeros)-1):
+    for j in range(i+1,len(array_numeros)):
+        if array_numeros[i] < array_numeros[j]:
+            numero_aux = array_numeros[i]
+
+            array_numeros[i] = array_numeros[j]
+            array_numeros[j] = numero_aux
 
 
 

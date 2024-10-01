@@ -148,6 +148,7 @@ def mostrar_alumnos():
     print(f"La cantidad de alumnos aprobados: {contar_alumnos_por_nota(matriz_alumnos, 4, 5)}")
     print(f"La cantidad de alumnos desaprobados: {contar_alumnos_por_nota(matriz_alumnos, 1, 3)}")
 
+# 8.El promedio de nota de todos los alumnos
 def calcular_promedio_notas(lista:list)->float:
     '''
     Calcula el promedio de las notas de todos los alumnos
@@ -165,7 +166,7 @@ def calcular_promedio_notas(lista:list)->float:
     print(f"El promedio de notas de los estudiantes es de: {promedio_notas}")
 
     return contador_alumnos_superan_promedio
-
+# 9. El promedio de nota de los alumnos masculinos
 def calcular_promedio_notas_masculinos(lista:list)->float:
     '''
     Se calcula el promedio de nota de SOLO los alumnos masculinos.

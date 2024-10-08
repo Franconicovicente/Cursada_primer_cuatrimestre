@@ -19,7 +19,7 @@ print(cadena_repetida) -> ‘’hola hola hola hola hola‘’
 '''
 
 # 5. Realizar una función que me cuente la cantidad de vocales de mi cadena, la misma recibe una cadena y devuelve la cantidad de vocales que encontró.
-# cadena = input("Ingrese una cadena: ")
+cadena = input("Ingrese una cadena: ")
 
 def contar_vocales (cadena:str)-> int:
     '''
@@ -36,7 +36,7 @@ print(f"En su cadena hay un total de {contar_vocales(cadena)} vocales")
 
 
 # 6. Realizar una función que me cuente la cantidad de consonantes de mi cadena, la misma recibe una cadena y devuelve la cantidad de consonantes que encontró.
-# cadena = input("Ingrese una cadena: ")
+cadena = input("Ingrese una cadena: ")
 
 def contar_consonantes (cadena:str)-> int:
     '''

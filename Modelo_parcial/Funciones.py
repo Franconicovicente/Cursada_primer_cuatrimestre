@@ -109,9 +109,7 @@ def mostrar_aplazados(matriz:list,max:int):
 
                 
     if bandera_aplazados == False:
-        print("No hay aplazados")
+        print("No hay aplazados...")
 
 
 mostrar_aplazados(matriz_bailarines, 4)
-
-

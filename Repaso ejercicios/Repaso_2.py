@@ -1,3 +1,4 @@
+import random
 '''
 1. Escribir una función que reciba una lista de enteros, la misma calculará y devolverá el promedio de todos los números.
 
@@ -113,6 +114,141 @@ def retornar_indice_valor_maximo(lista:list) -> int:
     return resultado
 
 
-lista_aux = [0,0,0,0,0]
+# lista_aux = [0,0,0,0,0]
 
-print(retornar_indice_valor_maximo(lista_aux))
+# print(retornar_indice_valor_maximo(lista_aux))
+
+# 5. Escribir una función que reciba como parámetros una lista de enteros y muestre el índice del valor máximo encontrado (no se tienen en cuenta si hay más de un máximo) Reutilizar la función anterior.
+
+# Ejemplo [2,5,5,3,1] -> Imprime el índice  1 y su valor
+def retornar_indice_valor_maximo_y_numero(lista:list) -> int:
+    '''
+    
+    '''
+    num_max = lista[0]
+    indice = 0
+
+    for i in range(len(lista)):
+        numero = int(input("Ingrese un numero para su funcion: "))
+        lista[i] = numero
+        
+        if lista[i] > num_max:
+            num_max = lista[i]
+            indice = [i]
+    
+    resultado = f"El numero max. se encontró en el indice = {indice} y el num es {num_max}"
+    
+    return resultado
+
+# lista_aux = [0,0,0,0,0]
+
+# print(retornar_indice_valor_maximo_y_numero(lista_aux))
+
+# 6.Escribir una función que reciba como parámetros una lista de enteros y retorne todos los índices del del valor máximo encontrado (Puede haber más de uno)
+
+# Ejemplo [2,5,5,3,1] -> Retorna el índice [1,2]
+
+
+def retornar_indices_mas_altos(lista:list) -> int:
+    '''
+    
+    '''
+    num_max = lista[0]
+    indice = 0
+    bandera_indices = False
+
+
+    for i in range(len(lista)):
+        numero = int(input("Ingrese su numero: "))
+        lista[i] = numero
+
+
+        if lista[i] > num_max:
+            num_max = lista[i]
+            indice = i
+
+        elif lista[i] == num_max:
+            indice = [indice, indice + 1]
+            bandera_indices == True
+    
+    if bandera_indices == False:
+        resultado = f"El valor maximo se encontró en el indice: {indice}"
+    else:
+        resultado = f"El valor maximo se encontró en los indices {indice}"
+    
+    return resultado
+
+
+# lista_aux = [0,0,0,0,0]
+
+# print(retornar_indices_mas_altos(lista))
+
+
+# 7. Escribir una función que reciba como parámetros una lista de enteros y muestre la posición del valor máximo encontrado. Reutilizar la función anterior
+
+def mostrar_posicion_maxima(lista:list) -> int:
+    '''
+    
+    '''
+    num_max = lista[0]
+    indice = 0
+
+
+    for i in range(len(lista)):
+        numero = int(input("Ingrese su numero: "))
+        lista[i] = numero
+
+
+        if lista[i] > num_max:
+            num_max = lista[i]
+            indice = i
+
+    resultado = f"El valor maximo se encontró en la posicion {indice+1}"
+
+    return resultado
+
+
+# lista_aux = [0,0,0,0,0]
+
+# print(mostrar_posicion_maxima(lista_aux))
+
+# 8. Definir y cargar una lista con 10 sueldos enteros aleatorios (utilizar random), entre ARS 350.000 y ARS 1.250.000. Calcular el porcentaje de personas que superan el salario promedio de estos mismos.
+
+
+def cargar_sueldos (lista:list) -> float:
+    '''
+    
+    '''
+    
+    salario_acumulado = 0
+    contador_personas = 0
+    bandera_sueldos = False
+    for i in range(10):
+        sueldo = random.randint(350000,1250000)
+        lista.append(sueldo)
+        salario_acumulado += sueldo
+    
+    promedio_sueldos = salario_acumulado / 10
+
+    print(f"Sueldo promedio: {promedio_sueldos}")
+    print("")
+    print("La lista es: ")
+    print(lista)
+    print("")
+    for sueldos in lista:
+        if sueldos > promedio_sueldos:
+            contador_personas += 1
+            bandera_sueldos = True
+
+    if bandera_sueldos == True:
+        porcentaje_superan_salario_promedio = round((contador_personas / 10 ) * 100, 2)
+    else:
+        resultado = "Nadie supera el sueldo promedio"
+    
+    resultado = f"El porcentaje de personas que superan el sueldo promedio es de = {porcentaje_superan_salario_promedio}%"
+
+    return resultado
+lista_sueldos = []
+
+
+print(cargar_sueldos(lista_sueldos))

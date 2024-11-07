@@ -3,10 +3,10 @@ import random
 
 lista_postulados = [
     [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0],
     [0,0,0,0]
+    # [0,0,0,0],
+    # [0,0,0,0],
+    # [0,0,0,0]
 ]
 
 I_NRO_LISTA = 0
@@ -46,23 +46,52 @@ def cargar_votos (lista:list):
         lista[fil][I_VOTOSTARDE] = votos_tarde
         lista[fil][I_VOTOSNOCHE] = votos_noche
 
-
-    return lista
-
-
 # 2. Mostrar Votos: Muestra en un lindo formato los siguientes datos: Nro Lista, Votos Turno Mañana,Votos Turno Tarde,Votos Turno Noche,Porcentaje Voto:
-# 4. No te votó nadie: Encontrar y mostrar a las listas que tengan menos del 5% de todos los votos
 
 def mostrar_votos (lista:list):
     '''
     Muestra en un formato mas leible para el usuario los datos adquiridos de la lista 
     del centro de estudiantes
-    Tambien calcula el porcentaje de votos de la lista y en caso de tener menos del 5% de los votos
-    Dice que lista es, y la acompaña con un texto
+    
     '''
-    resultado = cargar_votos(lista_postulados)
+    resultado = cargar_votos(lista)
 
     print("Datos de la lista...")
+    print("")
+    for resultado in lista:
+        print(f"Nro de lista: {resultado[0]}")
+        print(f"Votos del turno mañana: {resultado[1]}")
+        print(f"Votos del turno tarde: {resultado[2]}")
+        print(f"Votos del turno noche: {resultado[3]}")
+        print("=" * 40)
+
+
+mostrar_votos(lista_postulados)
+
+# 3. Ordenar votos turno mañana: Ordena la matriz de mayor a menor por la cantidad de
+# votos que tuvieron en el turno mañana.
+
+def ordenar_votos_turno_mañana (lista:list):
+    '''
+    Ordena los votos de mayor a menor de acuerdo a la cantidad de votos 
+    basado en el turno mañana. Retorna la nueva lista ordenada
+    '''
+
+    for i in range(len(lista)-1):
+        for j in range(i+1,(len(lista))):
+            if lista[i][1] < lista[j][1]:
+                voto_aux = lista[i]
+
+                lista[i] = lista[j]
+                lista[j] = voto_aux
+
+def mostrar_votos_turno_mañana (lista:list):
+    '''
+    Muestra en un formato mas leible para el usuario los datos adquiridos de la lista 
+    del centro de estudiantes
+    '''
+    resultado = ordenar_votos_turno_mañana(lista_postulados)
+    print("Datos ordenados de mayor a menor de acuerdo a votos del turno mañana...")
     print("")
     for resultado in lista_postulados:
         print(f"Nro de lista: {resultado[0]}")
@@ -71,6 +100,17 @@ def mostrar_votos (lista:list):
         print(f"Votos del turno noche: {resultado[3]}")
         print("=" * 40)
 
+mostrar_votos_turno_mañana(lista_postulados)
+
+
+# 4. No te votó nadie: Encontrar y mostrar a las listas que tengan menos del 5% de todos
+# los votos
+def calcular_votos_porcentaje (lista:list):
+    
+    '''
+    Calcula el porcentaje de votos de la lista y en caso de tener menos del 5% de los votos
+    Dice que lista es, y la acompaña con un texto
+    '''
     total_votos = 0
 
     for listas in lista:
@@ -94,48 +134,14 @@ def mostrar_votos (lista:list):
                 print(f"A la lista {numero_lista} no la votó nadie!")
 
 
-mostrar_votos(lista_postulados)
+calcular_votos_porcentaje(lista_postulados)
 
-# 3. Ordenar votos turno mañana: Ordena la matriz de mayor a menor por la cantidad de
-# votos que tuvieron en el turno mañana.
 
-def ordenar_votos_turno_mañana (lista:list):
-    '''
-    Ordena los votos de mayor a menor de acuerdo a la cantidad de votos 
-    basado en el turno mañana. Retorna la nueva lista ordenada
-    '''
-
-    for i in range(len(lista)-1):
-        for j in range(i+1,(len(lista))):
-            if lista[i][1] < lista[j][1]:
-                voto_aux = lista[i]
-
-                lista[i] = lista[j]
-                lista[j] = voto_aux
-
-    return lista
-
-def mostrar_votos_turno_mañana (lista:list):
-    '''
-    Muestra en un formato mas leible para el usuario los datos adquiridos de la lista 
-    del centro de estudiantes
-    '''
-    
-    resultado = ordenar_votos_turno_mañana(lista_postulados)
-
-    print("Datos ordenados de mayor a menor de acuerdo a votos del turno mañana...")
-    print("")
-    for resultado in lista_postulados:
-        print(f"Nro de lista: {resultado[0]}")
-        print(f"Votos del turno mañana: {resultado[1]}")
-        print(f"Votos del turno tarde: {resultado[2]}")
-        print(f"Votos del turno noche: {resultado[3]}")
-        print("=" * 40)
-
-mostrar_votos_turno_mañana(lista_postulados)
 
 # 5. Turno que más fue a votar: Mostrar cuál fue el turno o los turnos al que más alumnos
 # fueron a votar.
+
+# 5.Mal, no hace lo que se requiere, acá no tenemos en cuenta el partido político, sino la cantidad de votos totales por turno. No se muestra por lista politica el turno que más lo votaron, sino de la elección en general el turno que más se fue a votar.
 
 def mostrar_turno_que_mas_voto(lista:list):
     '''
@@ -143,7 +149,7 @@ def mostrar_turno_que_mas_voto(lista:list):
     el resultado
     '''
     for i in range(len(lista)):
-        print(f"En la lista numero {i+1}...")
+        print(f"En la lista numero {lista[i][I_NRO_LISTA]}")
         if lista[i][I_VOTOSTEMPRANO] > lista[i][I_VOTOSTARDE] and lista[i][I_VOTOSTEMPRANO] > lista[i][I_VOTOSNOCHE]:
             print("Los alumnos que mas fueron a votar fueron los del turno mañana...")
         elif lista[i][I_VOTOSTARDE] > lista[i][I_VOTOSNOCHE]:

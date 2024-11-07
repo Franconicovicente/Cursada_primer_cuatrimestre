@@ -1,0 +1,20 @@
+[
+    {
+        "nombre": "Mariano",
+        "apellido": "Fernandez",
+        "genero": "masculino",
+        "nota_final": 10
+    },
+    {
+        "nombre": "Jose",
+        "apellido": "Perez",
+        "genero": "masculino",
+        "nota_final": 4
+    },
+    {
+        "nombre": "Maria",
+        "apellido": "Lopez",
+        "genero": "femenino",
+        "nota_final": 7
+    }
+]

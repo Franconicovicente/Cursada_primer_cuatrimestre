@@ -25,7 +25,7 @@ pygame.init()
 
 #Configuraciones básicas
 #Nombre del proyecto
-pygame.display.set_caption("MI PRIMER JUEGO 114")
+pygame.display.set_caption("TEST JUEGO")
 #Icono
 icono = pygame.image.load("icono.png")
 pygame.display.set_icon(icono)
@@ -48,7 +48,7 @@ contador = 0
 
 #Texto 
 fuente = pygame.font.SysFont("Arial",25)
-texto = fuente.render(f"PUNTUACION: {contador}",False,COLOR_NEGRO)
+texto = fuente.render(f"PUNTUACION: {contador}",True,COLOR_NEGRO)
 
 #SONIDOS
 sonido_click = pygame.mixer.Sound("click.mp3")
@@ -56,11 +56,11 @@ sonido_click.set_volume(1)
 
 #MUSICA
 
-# pygame.mixer.init() #Inicializo mixer para manipular la musica
-# pygame.mixer.music.load("musica.mp3") #Cargo musica de fondo
-# pygame.mixer.music.set_volume(0.05)
-# pygame.mixer.music.play()#Se ejecuta una vez
-# pygame.mixer.music.play(-1)#Se ejecuta constatemente
+pygame.mixer.init() #Inicializo mixer para manipular la musica
+pygame.mixer.music.load("musica.mp3") #Cargo musica de fondo
+pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.play()#Se ejecuta una vez
+pygame.mixer.music.play(-1)#Se ejecuta constatemente
 
 #Creo un reloj
 clock = pygame.time.Clock()
@@ -81,7 +81,7 @@ while corriendo:
             sonido_click.play()
     
     #5. Actualizar el juego: 
-    texto = fuente.render(f"PUNTUACION: {contador}",False,COLOR_NEGRO)
+    texto = fuente.render(f"PUNTUACION: {contador}",True,COLOR_VERDE)
     
     #6.Dibujar pantalla y las otras superficies
     pantalla.fill(COLOR_BLANCO)
@@ -92,7 +92,7 @@ while corriendo:
     pygame.draw.rect(pantalla,COLOR_NEGRO,(100,100,100,50))
     
     #Muestro mi propia superficie
-    pantalla.blit(mi_superficie,(350,250))
+    pantalla.blit(mi_superficie,(350,350))
     pantalla.blit(texto,(10,10))
     
     #7.Actualiza la pantalla

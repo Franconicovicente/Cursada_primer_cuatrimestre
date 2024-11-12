@@ -91,6 +91,16 @@ def mostrar_lista_diccionarios(lista_diccionarios:list) -> bool:
             print(f"{clave.replace("_"," ").title()} : {valor}")
         print("")
     return retorno
+#3.Ordenar empleados por sueldo: Crea una copia (DEEP COPY) de la lista original, la ordena y la muestra.
+
+def ordenar_por_sueldo (lista:list):
+    lista_copia = copy.deepcopy(lista)
+
+    lista_copia.sort(key=lambda empleado: empleado['sueldo'], reverse=True)
+
+    for empleado in lista_copia:
+        print(empleado)
+
 
 
 while(True):
@@ -108,9 +118,7 @@ while(True):
             print("No se ingresaron empleados...")
     
     elif opcion == 3:
-        lista_empleados_copia = copy.deepcopy(lista_empleados)
-        lista_empleados_copia.sort(reverse=True)
-        mostrar_lista_diccionarios(lista_empleados_copia)
+        ordenar_por_sueldo(lista_empleados)
 
 
-#3.Ordenar empleados por sueldo: Crea una copia (DEEP COPY) de la lista original, la ordena y la muestra.
+

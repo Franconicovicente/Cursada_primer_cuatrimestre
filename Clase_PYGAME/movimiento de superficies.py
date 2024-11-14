@@ -18,6 +18,7 @@
 #1.Inicializacion
 
 import pygame
+import random
 from Constantes import *
 
 #Inicializar pygame
@@ -40,6 +41,18 @@ pygame.display.set_icon(icono)
 #Superficie con imagen
 mi_superficie = pygame.image.load("homero.png")
 mi_superficie = pygame.transform.scale(mi_superficie,(150,200))
+#Rectangulo
+mi_rectangulo = mi_superficie.get_rect()
+mi_rectangulo.x = 200
+mi_rectangulo.y = 250 
+#Pared
+pared = pygame.Surface((40,200))
+pared.fill(COLOR_AZUL)
+rectangulo_pared = pared.get_rect()
+rectangulo_pared.x = 40
+rectangulo_pared.y = mi_rectangulo.y
+
+
 
 #Configurar la pantalla
 pantalla = pygame.display.set_mode(VENTANA)
@@ -81,37 +94,80 @@ while corriendo:
     contador +=1
     #4. Gestionar eventos:
     for evento in pygame.event.get():
+        
         if evento.type == pygame.QUIT:
             print("SALIENDO")
             corriendo = False
         if evento.type == pygame.MOUSEBUTTONDOWN:
             print(f"X = {evento.pos[0]} Y = {evento.pos[1]}")
             print("HIZO CLICK")
+
+            if rectangulo_pared.collidepoint(evento.pos):
+                # pared.fill(COLOR_VIOLETA)
+                #Color random
+                pared.fill((random.randint(0,255),random.randint(0,255),random.randint(0,255)))
+                #Desaparecer la pared
+                # rectangulo_pared.x = -100
+                # rectangulo_pared.y = -100
+                print("LE HICE CLICK A LA PARED")
+            
+            #Mover la imagen.png
+            # mi_rectangulo.x = evento.pos[0]
+            # mi_rectangulo.y = evento.pos[1]
             sonido_click.play()
+        if evento.type == pygame.KEYDOWN:
+            if evento.key == pygame.K_LEFT:
+                # print("SE TOCÓ FLECHA IZQUIERDA")
+                if mi_rectangulo.left > 10:
+                    mi_rectangulo.x -= 1
+            elif evento.key == pygame.K_RIGHT:
+                if mi_rectangulo.right < 345:
+                    mi_rectangulo.x += 1
+                # print("SE TOCÓ FLECHA DERECHA")
+
         if evento.type == evento_tiempo_1_segundo:
             contador_tiempo -= 1
-            print("PASÓ UN SEGUNDO")
+            # print("PASÓ UN SEGUNDO")
         if evento.type == evento_tiempo_5_segundos:
-            print("PASÓ 5 SEGUNDOS")
+            pass
+            # print("PASÓ 5 SEGUNDOS")
+    teclas = pygame.key.get_pressed()
     
-    if contador_tiempo == 0:
-        corriendo = False
+    
+    if teclas[pygame.K_LEFT]:
+        if mi_rectangulo.colliderect(rectangulo_pared):
+            # print("CHOCÓ")
+            mi_rectangulo.right += 10
+        else:
+            if mi_rectangulo.left > 10:
+                mi_rectangulo.x -= 1
+                
+
+    elif teclas[pygame.K_RIGHT]:
+        if mi_rectangulo.colliderect(rectangulo_pared):
+            mi_rectangulo.left += 10
+            # print("CHOCÓ")
+        else:
+            if mi_rectangulo.right < 500:
+                mi_rectangulo.x += 1
+
+    # if contador_tiempo == 0:
+    #     corriendo = False
     
     #5. Actualizar el juego: 
     texto = fuente.render(f"TIEMPO: {contador_tiempo}",True,COLOR_VIOLETA)
     
     #6.Dibujar pantalla y las otras superficies
     pantalla.fill(COLOR_BLANCO)
+    #Dibujo la hitbox de homero
+    # pygame.draw.rect(pantalla,COLOR_ROJO,mi_rectangulo,2)
+    # pygame.draw.rect(pantalla,COLOR_ROJO,rectangulo_pared,2)
     
-    #Agregar un circulo rojo en el medio de la pantalla
-    pygame.draw.circle(pantalla,COLOR_ROJO,(250,250),50)
-    #Agregar un rectangulo negro en la pos x = 100, y = 100
-    pygame.draw.rect(pantalla,COLOR_NEGRO,(100,100,100,50))
     
     #Muestro mi propia superficie
-    pantalla.blit(mi_superficie,(250,300))
+    pantalla.blit(mi_superficie,(mi_rectangulo.x,mi_rectangulo.y))
     pantalla.blit(texto,(10,10))
-    
+    pantalla.blit(pared,(rectangulo_pared.x,rectangulo_pared.y))
     #7.Actualiza la pantalla
     pygame.display.flip()
 pygame.quit()
